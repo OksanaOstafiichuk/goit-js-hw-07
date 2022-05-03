@@ -40,7 +40,9 @@ function onImageClick(evt) {
         const ESC_KEY_CODE = 'Escape';
 
         if (evt.code === ESC_KEY_CODE) {
-            instance.close();
+            instance.close(() => {
+                window.removeEventListener('keydown', onModalClose);
+            });
         }
     }
 }
